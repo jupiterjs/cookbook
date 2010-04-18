@@ -68,10 +68,11 @@ class RecipesController < ApplicationController
         flash[:notice] = 'Recipe was successfully updated.'
         format.html { redirect_to(@recipe) }
         format.xml  { head :ok }
+        format.json  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
-        format.xml  { render :json => @recipe.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @recipe.errors, :status => :unprocessable_entity }
       end
     end
   end
